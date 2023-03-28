@@ -1,4 +1,27 @@
-//HTML from Strings and XSS
+//#27 Traversing and Removing Nodes
+const wes = document.querySelector('.wesBos');
+
+console.log(wes.firstElementChild);
+console.log(wes.lastElementChild);
+console.log(wes.previousElementSibling);
+console.log(wes.nextElementSibling);
+console.log(wes.parentElement);
+console.log(wes.children);
+
+console.log(wes.childNodes);
+console.log(wes.parentNode);
+
+//CLOSEST()
+console.log(wes.closest('.container'));
+
+//REMOVE()
+const p = document.createElement('p');
+p.textContent = 'I will be removed';
+document.body.appendChild(p);
+p.remove();
+console.log(p); //it stays in JS memory
+
+//#26 HTML from Strings and XSS
 const introElm = document.querySelector('.introduction');
 myHTML = '<h2>Hello everyone!</h2>';
 introElm.innerHTML = myHTML;
@@ -13,7 +36,7 @@ mySecondHTML = `<h2>Hello ${text}!</h2>`;
 const fragment = document.createRange().createContextualFragment(mySecondHTML);
 introElm.appendChild(fragment);
 
-// CREATING HTML
+// #25 CREATING HTML
 // create an unordered list with 5 items in it using APPEND, APPENDCHILD, INSERTADJACENTELEMENT, CLONENODE, CREATEELEMENT
 const listElm = document.createElement('ul');
 const secondListElm = document.createElement('li');
@@ -34,7 +57,7 @@ thirdListElm.insertAdjacentElement('afterend', fourthListElm);
 listElm.append(fifththListElm);
 listElm.insertAdjacentElement('afterbegin', firstListElm);
 
-// CLASSLIST, DATASET
+// #23 and #24 CLASSLIST, DATASET
 const pic = document.querySelector('.round');
 console.log(pic.classList);
 
