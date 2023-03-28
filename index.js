@@ -1,3 +1,18 @@
+//HTML from Strings and XSS
+const introElm = document.querySelector('.introduction');
+myHTML = '<h2>Hello everyone!</h2>';
+introElm.innerHTML = myHTML;
+console.log(typeof myHTML); // string => console.log(myHTML.classList) => undefined;
+const myHTMLElm = document.querySelector('h2');
+myHTMLElm.classList.add('coloured');
+
+//document.createRange() and document.createFragment()
+// const textXSS = `Cute Pup <img onload="alert('hacked');" src="https://picsum.photos/50"/>`;
+const text = 'everyone';
+mySecondHTML = `<h2>Hello ${text}!</h2>`;
+const fragment = document.createRange().createContextualFragment(mySecondHTML);
+introElm.appendChild(fragment);
+
 // CREATING HTML
 // create an unordered list with 5 items in it using APPEND, APPENDCHILD, INSERTADJACENTELEMENT, CLONENODE, CREATEELEMENT
 const listElm = document.createElement('ul');
